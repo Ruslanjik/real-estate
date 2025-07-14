@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Каталог недвижимости</title>
+    <link rel="stylesheet" href="/static/main.css" />
+</head>
+<body>
+    <header>
+        <h1> Каталог недвижимости</h1>
+    </header>
+    <main>
+        {% for item in properties %}
+            <article class="card {% if item['status'] != 'активен' %}inactive{% endif %}">
+                <h2>{{ item['title'] }}</h2>
+                <p><strong>Тип объекта:</strong> {{ item['type'] }}</p>
+                <p><strong>Город:</strong> {{ item['city'] }}</p>
+                <p><strong>Цена:</strong> {{ "{:,}".format(item['price']) }} ₽</p>
+                <p><strong>Статус:</strong> {{ item['status'] }}</p>
+            </article>
+        {% endfor %}
+    </main>
+    <footer>
+        © 2025 Каталог недвижимости. Все права защищены.
+    </footer>
+</body>
+</html>

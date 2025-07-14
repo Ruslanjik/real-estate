@@ -1,0 +1,107 @@
+/* Базовые стили */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  margin: 0;
+  padding: 0;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #34495e;
+  padding: 25px 0;
+  text-align: center;
+  color: #ecf0f1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
+}
+
+main {
+  flex-grow: 1;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.12),
+    0 4px 10px rgba(0,0,0,0.06);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.25),
+    0 8px 15px rgba(0,0,0,0.15);
+}
+
+.card.inactive {
+  opacity: 0.5;
+  filter: grayscale(70%);
+  cursor: not-allowed;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin: 0 0 15px;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.card p strong {
+  color: #34495e;
+}
+
+footer {
+  background-color: #34495e;
+  text-align: center;
+  padding: 15px 0;
+  color: #ecf0f1;
+  font-size: 0.9rem;
+  margin-top: auto;
+  user-select: none;
+}
+
+/* Адаптивность */
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+  }
+  .card {
+    padding: 20px;
+  }
+}
